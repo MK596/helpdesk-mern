@@ -45,40 +45,39 @@ function Users() {
     }
 
     return (
-        <div className='py-8'>
+        <div className="container py-4">
             <BackButton url='/admin' />
-            <h1 className="text-4xl font-black text-gray-900 mb-8 mt-4">System Users</h1>
+            <h1 className="fw-black mb-4 mt-4">System Users</h1>
 
-            <div className='bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden'>
-                <div className='overflow-x-auto'>
-                    <table className='w-full text-left'>
-                        <thead className='bg-gray-50 text-gray-500 text-xs uppercase tracking-wider font-bold'>
-                            <tr>
-                                <th className='px-6 py-4'>Name</th>
-                                <th className='px-6 py-4'>Email</th>
-                                <th className='px-6 py-4'>Role</th>
-                                <th className='px-6 py-4'>Joined</th>
+            <div className='card border-0 shadow-sm rounded-3 overflow-hidden bg-white'>
+                <div className='table-responsive'>
+                    <table className='table table-hover align-middle mb-0'>
+                        <thead>
+                            <tr className='bg-light bg-opacity-50'>
+                                <th className='px-4 py-3 border-0 small text-uppercase text-muted fw-black'>Name</th>
+                                <th className='px-4 py-3 border-0 small text-uppercase text-muted fw-black'>Email</th>
+                                <th className='px-4 py-3 border-0 small text-uppercase text-muted fw-black'>Role</th>
+                                <th className='px-4 py-3 border-0 small text-uppercase text-muted fw-black'>Joined</th>
                             </tr>
                         </thead>
-                        <tbody className='divide-y divide-gray-100'>
+                        <tbody>
                             {users.map(u => (
-                                <tr key={u._id} className='hover:bg-gray-50 transition-colors'>
-                                    <td className='px-6 py-4'>
-                                        <div className='flex items-center gap-3'>
-                                            <div className={`p-2 rounded-full ${u.role === 'admin' ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600'}`}>
+                                <tr key={u._id} className='border-bottom border-light'>
+                                    <td className='px-4 py-3'>
+                                        <div className='d-flex align-items-center gap-3'>
+                                            <div className={`p-2 rounded-circle ${u.role === 'admin' ? 'bg-primary bg-opacity-10 text-primary' : 'bg-info bg-opacity-10 text-info'}`}>
                                                 {u.role === 'admin' ? <FaUserShield /> : <FaUser />}
                                             </div>
-                                            <span className='font-bold text-gray-900'>{u.name}</span>
+                                            <span className='fw-bold text-dark'>{u.name}</span>
                                         </div>
                                     </td>
-                                    <td className='px-6 py-4 text-gray-600'>{u.email}</td>
-                                    <td className='px-6 py-4'>
-                                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${u.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
-                                            }`}>
-                                            {u.role}
+                                    <td className='px-4 py-3 text-muted'>{u.email}</td>
+                                    <td className='px-4 py-3'>
+                                        <span className={`badge rounded-pill fw-bold ${u.role === 'admin' ? 'bg-primary bg-opacity-10 text-primary border border-primary border-opacity-20' : 'bg-info bg-opacity-10 text-info border border-info border-opacity-20'}`} style={{ fontSize: '0.65rem' }}>
+                                            {u.role.toUpperCase()}
                                         </span>
                                     </td>
-                                    <td className='px-6 py-4 text-sm text-gray-500'>{new Date(u.createdAt).toLocaleDateString()}</td>
+                                    <td className='px-4 py-3 small text-muted'>{new Date(u.createdAt).toLocaleDateString()}</td>
                                 </tr>
                             ))}
                         </tbody>

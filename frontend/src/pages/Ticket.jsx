@@ -170,11 +170,14 @@ function Ticket() {
                                             <button onClick={() => setIsEditing(true)} className="btn btn-outline-primary btn-sm fw-bold d-flex align-items-center gap-2">
                                                 <FaEdit /> EDIT DETAILS
                                             </button>
-                                            <button onClick={onTicketClose} className="btn btn-outline-danger btn-sm fw-bold">
+                                            <button onClick={onTicketClose} className="btn btn-outline-warning btn-sm fw-bold">
                                                 CLOSE TICKET
                                             </button>
                                         </>
                                     )}
+                                    <button onClick={onDelete} className="btn btn-outline-danger btn-sm fw-bold d-flex align-items-center gap-2">
+                                        <FaTrash /> DELETE
+                                    </button>
                                 </>
                             )}
                         </div>

@@ -12,9 +12,18 @@ connectDB();
 const app = express();
 
 app.use(helmet({
-    contentSecurityPolicy: false, // Disable CSP for simplicity if needed, or configure properly
+    contentSecurityPolicy: false,
 }));
-app.use(cors());
+
+// CORS configuration
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production'
+        ? process.env.FRONTEND_URL || true // Allow configured origin or all in production
+        : 'http://localhost:5173', // Development
+    credentials: true,
+};
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

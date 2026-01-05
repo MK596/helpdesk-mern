@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config/api";
+
 
 const AuthContext = createContext();
 
@@ -20,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await axios.post("/api/users", userData);
+            const response = await axios.post(`${API_BASE_URL}/api/users`, userData);
             setIsLoading(false);
             return response.data;
         } catch (err) {
@@ -38,7 +40,7 @@ export const AuthProvider = ({ children }) => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await axios.post("/api/users/login", userData);
+            const response = await axios.post(`${API_BASE_URL}/api/users/login`, userData);
             if (response.data) {
                 localStorage.setItem("user", JSON.stringify(response.data));
                 setUser(response.data);
