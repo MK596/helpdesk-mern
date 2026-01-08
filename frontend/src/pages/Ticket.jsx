@@ -44,6 +44,7 @@ function Ticket() {
 
                 setIsLoading(false);
             } catch (error) {
+                console.error('Fetch ticket error:', error);
                 toast.error('Could not fetch ticket details');
                 setIsLoading(false);
             }
@@ -67,6 +68,7 @@ function Ticket() {
             setTicket(response.data);
             toast.success(`Updated: ${status}`);
         } catch (error) {
+            console.error('Update error:', error);
             toast.error('Update failed');
         }
     }
@@ -87,6 +89,7 @@ function Ticket() {
             setIsEditing(false);
             toast.success('Ticket updated');
         } catch (error) {
+            console.error('User update error:', error);
             toast.error('Failed to update ticket');
         }
     }
@@ -107,6 +110,7 @@ function Ticket() {
                 navigate('/tickets');
             }
         } catch (error) {
+            console.error('Delete error:', error);
             toast.error('Deletion error');
         }
     }
@@ -122,6 +126,7 @@ function Ticket() {
             toast.success('Ticket closed');
             if (user.role !== 'admin') navigate('/tickets');
         } catch (error) {
+            console.error('Close ticket error:', error);
             toast.error('Error closing ticket');
         }
     }

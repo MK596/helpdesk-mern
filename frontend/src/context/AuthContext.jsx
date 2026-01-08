@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import axios from "axios";
 import API_BASE_URL from "../config/api";
 
@@ -6,17 +6,17 @@ import API_BASE_URL from "../config/api";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const userFromStorage = localStorage.getItem("user");
-        if (userFromStorage) {
-            setUser(JSON.parse(userFromStorage));
+    const [user, setUser] = useState(() => {
+        try {
+            const userFromStorage = localStorage.getItem("user");
+            return userFromStorage ? JSON.parse(userFromStorage) : null;
+        } catch (err) {
+            console.error('Error parsing user from storage:', err);
+            return null;
         }
-        setIsLoading(false);
-    }, []);
+    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const register = async (userData) => {
         setIsLoading(true);

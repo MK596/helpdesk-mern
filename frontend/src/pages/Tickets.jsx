@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,6 @@ import { FaTicketAlt, FaSearch, FaPlus, FaFilter, FaInbox } from 'react-icons/fa
 function Tickets() {
     const { user } = useContext(AuthContext);
     const [tickets, setTickets] = useState([]);
-    const [filteredTickets, setFilteredTickets] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
@@ -24,9 +23,9 @@ function Tickets() {
                 };
                 const response = await axios.get('/api/tickets', config);
                 setTickets(response.data);
-                setFilteredTickets(response.data);
                 setIsLoading(false);
             } catch (error) {
+                console.error('Fetch tickets error:', error);
                 toast.error('Could not fetch tickets');
                 setIsLoading(false);
             }
@@ -37,12 +36,11 @@ function Tickets() {
         }
     }, [user]);
 
-    useEffect(() => {
-        const results = tickets.filter(t =>
+    const filteredTickets = useMemo(() => {
+        return tickets.filter(t =>
             t.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             t.description.toLowerCase().includes(searchTerm.toLowerCase())
         );
-        setFilteredTickets(results);
     }, [searchTerm, tickets]);
 
     if (isLoading) return <Spinner />;

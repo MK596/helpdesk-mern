@@ -45,6 +45,7 @@ function Register() {
                 toast.success('Registration successful! Please sign in.');
                 navigate('/login');
             } catch (err) {
+                console.error('Registration error:', err);
                 // error is already handled by context and displayed via useEffect
             }
         }

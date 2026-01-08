@@ -20,7 +20,7 @@ function Home() {
                 const active = response.data.filter(t => t.status === 'Open' || t.status === 'In Progress');
                 setActiveCount(active.length);
             } catch (error) {
-                console.error('Failed to fetch ticket count');
+                console.error('Failed to fetch ticket count:', error);
             }
         };
 

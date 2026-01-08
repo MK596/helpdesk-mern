@@ -1,11 +1,10 @@
 import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import { FaUserCircle, FaEnvelope, FaShieldAlt, FaIdBadge, FaCheckCircle, FaUserShield } from 'react-icons/fa';
 
 function Profile() {
     const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
     const [formData] = useState({
         name: user?.name || '',
         email: user?.email || '',

@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useMemo } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
@@ -9,7 +9,6 @@ import { FaUsers, FaSearch, FaArrowRight, FaTicketAlt, FaClock, FaCheckDouble, F
 function AdminDashboard() {
     const { user, isLoading } = useContext(AuthContext);
     const [tickets, setTickets] = useState([]);
-    const [filteredTickets, setFilteredTickets] = useState([]);
     const [statusFilter, setStatusFilter] = useState('All');
     const [isFetching, setIsFetching] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -31,9 +30,9 @@ function AdminDashboard() {
                 };
                 const response = await axios.get('/api/tickets/all', config);
                 setTickets(response.data);
-                setFilteredTickets(response.data);
                 setIsFetching(false);
             } catch (error) {
+                console.error('Fetch all tickets error:', error);
                 toast.error('Could not fetch tickets');
                 setIsFetching(false);
             }
@@ -44,7 +43,7 @@ function AdminDashboard() {
         }
     }, [user, navigate]);
 
-    useEffect(() => {
+    const filteredTickets = useMemo(() => {
         let result = tickets;
 
         if (statusFilter !== 'All') {
@@ -59,7 +58,7 @@ function AdminDashboard() {
             );
         }
 
-        setFilteredTickets(result);
+        return result;
     }, [statusFilter, searchTerm, tickets]);
 
     if (isLoading || isFetching) return <Spinner />;

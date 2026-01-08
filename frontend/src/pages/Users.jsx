@@ -30,6 +30,7 @@ function Users() {
                 setUsers(response.data);
                 setIsFetching(false);
             } catch (error) {
+                console.error('Fetch users error:', error);
                 toast.error('Could not fetch users');
                 setIsFetching(false);
             }
