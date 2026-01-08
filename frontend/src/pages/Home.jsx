@@ -182,6 +182,51 @@ function Home() {
                         </div>
                     </div>
                 )}
+                {/* Getting Started Guide */}
+                <div className="row justify-content-center mb-5">
+                    <div className="col-md-10">
+                        <div className="mb-4 text-center">
+                            <h3 className="fw-black text-gradient">How it Works</h3>
+                            <p className="text-muted small">Follow these simple steps to get the most out of our support platform</p>
+                        </div>
+                        <div className="row g-4">
+                            <div className="col-md-4">
+                                <div className="card border-0 shadow-sm h-100 text-center p-4 rounded-4 bg-white">
+                                    <div className="bg-primary text-white p-3 rounded-circle mx-auto mb-3" style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <FaPlus size={24} />
+                                    </div>
+                                    <h6 className="fw-bold mb-2">1. Create a Ticket</h6>
+                                    <p className="text-muted small mb-0">
+                                        Click <strong>"Create Ticket"</strong> after logging in. Fill out the subject, priority level, and a detailed description of your technical issue.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="card border-0 shadow-sm h-100 text-center p-4 rounded-4 bg-white">
+                                    <div className="bg-primary text-white p-3 rounded-circle mx-auto mb-3" style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <FaSearch size={22} />
+                                    </div>
+                                    <h6 className="fw-bold mb-2">2. Track Progress</h6>
+                                    <p className="text-muted small mb-0">
+                                        Visit <strong>"My History"</strong> to see all your active records. Click on any ticket to see the <strong>"Support Response"</strong> from our expert team.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div className="card border-0 shadow-sm h-100 text-center p-4 rounded-4 bg-white">
+                                    <div className="bg-primary text-white p-3 rounded-circle mx-auto mb-3" style={{ width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <FaCheckCircle size={24} />
+                                    </div>
+                                    <h6 className="fw-bold mb-2">3. Resolve & Close</h6>
+                                    <p className="text-muted small mb-0">
+                                        Once our team provides a solution, verify it works and then click <strong>"Close Ticket"</strong> to archive the conversation and keep your history clean.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Usage Guidelines & Terms */}
                 <div className="row justify-content-center mb-5">
                     <div className="col-md-10">
