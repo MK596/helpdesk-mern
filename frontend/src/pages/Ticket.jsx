@@ -141,7 +141,7 @@ function Ticket() {
     const getStatusClass = (status) => {
         switch (status) {
             case 'Open': return 'bg-primary';
-            case 'In Progress': return 'bg-warning text-dark';
+            case 'In Progress': return 'bg-warning text-main';
             case 'Resolved': return 'bg-success';
             case 'Closed': return 'bg-danger';
             default: return 'bg-secondary';
@@ -264,7 +264,7 @@ function Ticket() {
                                         </div>
 
                                         {ticket.adminReply ? (
-                                            <div className="p-3 border rounded-2 bg-white">
+                                            <div className="p-3 border rounded-2">
                                                 <p className="small mb-0 fst-italic">"{ticket.adminReply}"</p>
                                                 <div className="mt-2 text-success fw-bold small text-uppercase" style={{ fontSize: '9px' }}>
                                                     <FaCheckCircle className="me-1" /> RESOLVED

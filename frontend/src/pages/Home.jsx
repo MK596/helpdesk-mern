@@ -117,7 +117,7 @@ function Home() {
                                 </div>
                                 <div>
                                     <h6 className="fw-bold mb-1 text-primary">In-Review Processing</h6>
-                                    <p className="small mb-0 text-dark opacity-75">
+                                    <p className="small mb-0 text-main opacity-75">
                                         You have <strong>{activeCount} active ticket(s)</strong>. Our specialized support team is currently investigating your requests.
                                     </p>
                                 </div>
@@ -137,7 +137,7 @@ function Home() {
                                         <h2 className="fw-black mb-2">Administrator Console</h2>
                                         <p className="opacity-75 mb-0 lead small">Complete control over tickets, user accounts, and system health.</p>
                                     </div>
-                                    <Link to="/admin" className="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold text-dark hover-translate transition-all d-flex align-items-center gap-3">
+                                    <Link to="/admin" className="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold text-main hover-translate transition-all d-flex align-items-center gap-3">
                                         Launch Dashboard <FaBolt className="text-primary" />
                                     </Link>
                                 </div>

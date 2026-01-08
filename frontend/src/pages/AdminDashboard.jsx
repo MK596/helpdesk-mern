@@ -67,7 +67,7 @@ function AdminDashboard() {
     const getStatusBadge = (status) => {
         switch (status) {
             case 'Open': return 'bg-primary bg-opacity-10 text-primary border border-primary border-opacity-20';
-            case 'In Progress': return 'bg-warning bg-opacity-10 text-dark border border-warning border-opacity-20';
+            case 'In Progress': return 'bg-warning bg-opacity-10 text-main border border-warning border-opacity-20';
             case 'Resolved': return 'bg-success bg-opacity-10 text-success border border-success border-opacity-20';
             case 'Closed': return 'bg-danger bg-opacity-10 text-danger border border-danger border-opacity-20';
             default: return 'bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-20';
@@ -105,7 +105,7 @@ function AdminDashboard() {
                     { label: 'Resolved Cases', val: tickets.filter(t => (t.status === 'Resolved' || t.status === 'Closed')).length, icon: <FaCheckDouble />, color: 'success', trend: '98%' }
                 ].map((stat, i) => (
                     <div className="col-6 col-md-3" key={i}>
-                        <div className={`card border-0 shadow-sm h-100 overflow-hidden bg-white`}>
+                        <div className={`card border-0 shadow-sm h-100 overflow-hidden`}>
                             <div className="card-body p-3">
                                 <div className="d-flex justify-content-between align-items-center mb-2">
                                     <div className={`bg-${stat.color} bg-opacity-10 text-${stat.color} p-2 rounded-3 fs-6`}>
@@ -126,7 +126,7 @@ function AdminDashboard() {
             {/* Advanced Filtration Toolbar */}
             <div className="row g-3 mb-4">
                 <div className="col-lg-8">
-                    <div className="card border-0 shadow-sm bg-white rounded-3">
+                    <div className="card border-0 shadow-sm rounded-3">
                         <div className="card-body p-2 px-3">
                             <div className="input-group input-group-sm bg-light rounded-pill px-2 py-1">
                                 <span className="input-group-text bg-transparent border-0"><FaSearch className="text-muted opacity-50" /></span>
@@ -142,7 +142,7 @@ function AdminDashboard() {
                     </div>
                 </div>
                 <div className="col-lg-4">
-                    <div className="card border-0 shadow-sm bg-white rounded-3 h-100">
+                    <div className="card border-0 shadow-sm rounded-3 h-100">
                         <div className="card-body p-2 px-3 d-flex align-items-center gap-2">
                             <FaFilter className="text-muted small" />
                             <select
@@ -162,7 +162,7 @@ function AdminDashboard() {
             </div>
 
             {/* Professional Data Grid */}
-            <div className="card border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+            <div className="card border-0 shadow-sm rounded-3 overflow-hidden">
                 <div className="table-responsive">
                     <table className="table table-hover align-middle mb-0">
                         <thead>
@@ -193,13 +193,13 @@ function AdminDashboard() {
                                                 {ticket.user?.name?.charAt(0) || '?'}
                                             </div>
                                             <div>
-                                                <div className="fw-bold small text-dark lh-1">{ticket.user?.name || 'Unknown User'}</div>
+                                                <div className="fw-bold small text-main lh-1">{ticket.user?.name || 'Unknown User'}</div>
                                                 <div className="text-muted" style={{ fontSize: '0.65rem' }}>{ticket.user?.email || 'System generated'}</div>
                                             </div>
                                         </div>
                                     </td>
                                     <td className="px-4">
-                                        <div className="fw-bold small text-dark mb-1 text-truncate" style={{ maxWidth: '200px' }}>{ticket.title}</div>
+                                        <div className="fw-bold small text-main mb-1 text-truncate" style={{ maxWidth: '200px' }}>{ticket.title}</div>
                                         <div className="d-flex gap-2 align-items-center">
                                             <span className={`badge rounded-pill pt-1 ${ticket.priority === 'High' ? 'text-danger bg-danger bg-opacity-10 border border-danger border-opacity-10' : 'text-muted bg-light'}`} style={{ fontSize: '0.55rem' }}>
                                                 {ticket.priority.toUpperCase()}

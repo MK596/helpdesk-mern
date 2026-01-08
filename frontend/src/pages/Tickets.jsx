@@ -75,7 +75,7 @@ function Tickets() {
             {/* Practical Stats Overlay */}
             <div className="row g-3 mb-4">
                 <div className="col-md-8">
-                    <div className="card border-0 shadow-sm bg-white rounded-3 h-100">
+                    <div className="card border-0 shadow-sm rounded-3 h-100">
                         <div className="card-body p-2 px-3 d-flex align-items-center">
                             <div className="input-group input-group-sm bg-light rounded-pill px-2 py-1 flex-grow-1">
                                 <span className="input-group-text bg-transparent border-0"><FaSearch className="text-muted opacity-50" /></span>
@@ -99,7 +99,7 @@ function Tickets() {
                                 </div>
                                 <div>
                                     <div className="small fw-bold text-muted text-uppercase mb-0" style={{ fontSize: '10px' }}>Total Records</div>
-                                    <h5 className="fw-black mb-0 text-dark">{tickets.length}</h5>
+                                    <h5 className="fw-black mb-0 text-main">{tickets.length}</h5>
                                 </div>
                             </div>
                             <div className="text-end">
@@ -112,7 +112,7 @@ function Tickets() {
             </div>
 
             {/* Professional Data Grid */}
-            <div className="card border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+            <div className="card border-0 shadow-sm rounded-3 overflow-hidden">
                 <div className="table-responsive">
                     <table className="table table-hover align-middle mb-0">
                         <thead>
@@ -138,7 +138,7 @@ function Tickets() {
                                         </span>
                                     </td>
                                     <td className="px-4">
-                                        <div className="fw-bold small text-dark mb-0 text-truncate" style={{ maxWidth: '300px' }}>{ticket.title}</div>
+                                        <div className="fw-bold small text-main mb-0 text-truncate" style={{ maxWidth: '300px' }}>{ticket.title}</div>
                                         <span className={`badge rounded-pill pt-1 ${ticket.priority === 'High' ? 'text-danger bg-danger bg-opacity-10 border border-danger border-opacity-10' : 'text-muted bg-light'}`} style={{ fontSize: '0.55rem' }}>
                                             {ticket.priority.toUpperCase()}
                                         </span>

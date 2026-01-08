@@ -121,7 +121,7 @@ body {
 
 .form-control:focus,
 .form-select:focus {
-  border-color: var(--primary-red);
+  border-color: var(--primary-green);
   box-shadow: 0 0 0 4px var(--focus-ring);
   background-color: #ffffff;
   outline: none;

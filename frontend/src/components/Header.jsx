@@ -13,11 +13,11 @@ function Header() {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+        <nav className="navbar navbar-expand-lg border-bottom sticky-top py-3 header-nav">
             <div className="container">
                 <Link className="navbar-brand d-flex align-items-center gap-2 text-primary" to="/">
                     <FaLifeRing className="fs-4" />
-                    <span>HELPDESK</span>
+                    <span className="fw-black">HELPDESK</span>
                 </Link>
 
                 <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
